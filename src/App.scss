@@ -1,0 +1,16 @@
+main {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100vw;
+	.movies_container {
+		background-color: #121212;
+		padding: 24px 0 24px 0;
+		display: grid;
+		grid-gap: 70px;
+		grid-template-columns: repeat(auto-fill, minmax(180px, 220px));
+		width: 100%;
+		height: fit-content;
+		justify-content: center;
+	}
+}

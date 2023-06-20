@@ -1,0 +1,31 @@
+.progress_container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	.thumbs {
+		display: flex;
+		justify-content: space-between;
+		height: 16px;
+		opacity: 0.8;
+		.thumb {
+			stroke-width: 2;
+			stroke: #898989;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			height: 16px;
+			width: 16px;
+		}
+	}
+	.container {
+		height: 5px;
+		width: 100%;
+		border-radius: 14px;
+		overflow: hidden;
+		background-color: #ff4500;
+		div {
+			background-color: #32cd32;
+			height: 100%;
+			border-radius: 14px;
+		}
+	}
+}

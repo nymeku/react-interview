@@ -15,6 +15,7 @@ specifiers:
   react-redux: ^8.1.0
   react-router-dom: ^6.13.0
   redux: ^4.2.1
+  redux-persist: ^6.0.0
   sass: ^1.63.4
   typescript: ^5.0.2
   vite: ^4.3.9
@@ -26,6 +27,7 @@ dependencies:
   react-redux: 8.1.0_oyk45snna3t2fov46ldumqj2lu
   react-router-dom: 6.13.0_biqbaboplfbrettd7655fr4n2y
   redux: 4.2.1
+  redux-persist: 6.0.0_react@18.2.0+redux@4.2.1
   sass: 1.63.4
 
 devDependencies:
@@ -1682,6 +1684,19 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+
+  /redux-persist/6.0.0_react@18.2.0+redux@4.2.1:
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      redux: 4.2.1
+    dev: false
 
   /redux-thunk/2.4.2_redux@4.2.1:
     resolution: {integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==}

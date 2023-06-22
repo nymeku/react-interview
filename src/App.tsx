@@ -1,11 +1,11 @@
 import "./App.scss"
 import { Movie } from "./lib/movies"
 import MovieCard from "./components/card/card"
-import { RootState, remove } from "./lib/store"
+import { RootState } from "./lib/store"
 import { useSelector } from "react-redux"
 import Pagination from "./components/pagination/pagination"
 import React from "react"
-import MultiSelect from "./components/multi-select/multi-select"
+import { MultiSelectItem, MultiSelect } from "@tremor/react"
 
 const App = () => {
 	const movies: Movie[] = useSelector((state: RootState) => state.movies)
@@ -17,27 +17,21 @@ const App = () => {
 	React.useEffect(() => {
 		if (selectedCategories.size > 0) {
 			setfilteredMovies(movies.filter((mov) => selectedCategories.has(mov.category)))
+		} else {
+			setfilteredMovies(movies)
 		}
 	}, [selectedCategories, movies])
 
-	function addCat(value: string) {
-		setselectedCategories((old) => old.add(value))
-	}
-	function removeCat(value: string) {
-		setselectedCategories((old) => {
-			old.delete(value)
-			return old
-		})
-	}
-	console.log({ selectedCategories })
 	return (
 		<main>
 			<div className="pagination">
 				<Pagination />
 			</div>
-			<div style={{ backgroundColor: "red", width: "100px", height: "100px" }}>
-				<MultiSelect options={categories} active={selectedCategories} add={addCat} remove={removeCat} />
-			</div>
+			<MultiSelect className="max-w-sm mx-auto" onValueChange={(e) => setselectedCategories(new Set([...e]))}>
+				{Array.from(categories).map((item) => (
+					<MultiSelectItem value={item} />
+				))}
+			</MultiSelect>
 			<div className={"movies_container"}>
 				{filteredMovies.slice(page * pagination, (page + 1) * pagination).map((movie) => {
 					return <MovieCard key={movie.id} movie={movie} />

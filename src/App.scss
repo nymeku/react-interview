@@ -3,6 +3,11 @@ main {
 	justify-content: center;
 	flex-direction: column;
 	width: 100vw;
+	.pagination {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+	}
 	.movies_container {
 		background-color: #121212;
 		padding: 24px 0 24px 0;

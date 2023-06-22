@@ -16,6 +16,19 @@ const updateLike = (state: Movie[], movieId: string, action: "LIKE" | "DISLIKE")
 
 const initialState: Movie[] = await movies$
 
+const paginationSlice = createSlice({
+	name: "pagination",
+	initialState: { page: 0, pagination: 8 },
+	reducers: {
+		updatePagination: (state, { payload: value }) => ({ ...state, pagination: value }),
+		incrementPage: (state, { payload: length }) => {
+			state.page = Math.min(state.page + 2, Math.ceil(length.length / state.pagination))
+		},
+
+		decrementPage: (state) => ({ ...state, page: Math.max(0, state.page - 1) }),
+	},
+})
+
 const moviesSlice = createSlice({
 	name: "movies",
 	initialState,
@@ -27,10 +40,12 @@ const moviesSlice = createSlice({
 })
 
 export const { like, dislike, remove } = moviesSlice.actions
+export const { updatePagination, incrementPage, decrementPage } = paginationSlice.actions
 
 const store = configureStore({
 	reducer: {
 		movies: moviesSlice.reducer,
+		pagination: paginationSlice.reducer,
 	},
 })
 

@@ -1,0 +1,23 @@
+.page_container {
+	display: flex;
+	align-items: center;
+	flex-direction: column-reverse;
+	.pagination_container {
+		display: flex;
+		height: 40px;
+		gap: 10px;
+		align-items: center;
+		justify-content: center;
+		width: 100px;
+		select {
+			color: black;
+		}
+		img {
+			height: 16px;
+			cursor: pointer;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+}

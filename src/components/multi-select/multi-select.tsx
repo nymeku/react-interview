@@ -1,12 +1,13 @@
-import React from "react"
 import "./multi-select.scss"
-const MultiSelect = ({ options, setOptions }: { options: { [key: string]: boolean }; setOptions: (arg: string, value: boolean) => void }) => {
+
+const MultiSelect = ({ options, active, add, remove }: { options: Set<string>; active: Set<string>; add: (value: string) => void; remove: (value: string) => void }) => {
+	console.log(options, active)
 	return (
 		<div className="multi_container">
-			{Object.keys(options).map((opt) => (
+			{Array.from(options).map((opt) => (
 				<div key={opt}>
 					<label>{opt}</label>
-					<input type="checkbox" checked={options[opt]} onChange={(e) => setOptions(opt, e.target.checked)} />
+					<input type="checkbox" onChange={(e) => (e.target.checked === true ? add(opt) : remove(opt))} />
 				</div>
 			))}
 		</div>

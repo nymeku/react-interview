@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux"
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
 	const dispatch = useDispatch()
-	console.log(movie.liked)
 	return (
 		<div className={"movie_card"}>
 			<img src={movie.image} />
